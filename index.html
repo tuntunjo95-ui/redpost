@@ -136,7 +136,7 @@
       position: static;
       z-index: 10;
       display: grid;
-      grid-template-columns: minmax(240px, 1fr) 170px 170px 150px;
+      grid-template-columns: minmax(220px, 1fr) 160px 160px 150px 170px;
       gap: 10px;
       margin: 18px 0;
       padding: 16px;
@@ -643,7 +643,7 @@
       <div class="stats">
         <div class="stat"><b id="totalCount">47</b><span>候选帖子</span></div>
         <div class="stat"><b>7</b><span>主题方向</span></div>
-        <div class="stat"><b>47</b><span>可用原帖</span></div>
+        <div class="stat"><b id="usableCount">47</b><span>可用原帖</span></div>
       </div>
     </header>
 
@@ -659,6 +659,9 @@
         <option value="all">全部优先级</option>
         <option value="high">优先二创</option>
         <option value="normal">普通候选</option>
+      </select>
+      <select id="dateFilter" class="select" aria-label="采集日期">
+        <option value="all">全部日期</option>
       </select>
     </section>
 
@@ -751,10 +754,42 @@
       { title: "偶遇是蓄谋已久的巧合", author: "王雅佳Iris", date: "05-02", engagement: "7683", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "high", angle: "把偶遇设计成接近对方的方式。", question: "暗恋里的偶遇，是浪漫还是打扰？", reason: "金句式标题，话题边界值得讨论。", link: "https://www.xiaohongshu.com/search_result/69f56132000000003601da4a" },
       { title: "暗恋最好的结局应该就是这样了", author: "天禾", date: "2025-07-14", engagement: "107", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "normal", angle: "暗恋的理想收束。", question: "暗恋最好的结局一定是在一起吗？", reason: "价值观正向，适合温柔讨论。", link: "https://www.xiaohongshu.com/search_result/67c530470000000007035fbe" },
       { title: "我一直在哭", author: "笑脸薯饼。", date: "04-24", engagement: "146", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "normal", angle: "强情绪反应的故事候选。", question: "哪种感情瞬间会让你突然崩溃？", reason: "标题短而情绪强，需复核正文。", link: "https://www.xiaohongshu.com/search_result/69eb655100000000220273d9" },
-      { title: "希望能和学长好好在一起", author: "🍄哇喔", date: "2025-07-25", engagement: "466", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "normal", angle: "学长关系里的期待。", question: "校园里对学长的喜欢，更多是投射还是真了解？", reason: "校园身份明确，适合年轻受众。", link: "https://www.xiaohongshu.com/search_result/68833e8f000000001c034222" }
+      { title: "希望能和学长好好在一起", author: "🍄哇喔", date: "2025-07-25", engagement: "466", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "normal", angle: "学长关系里的期待。", question: "校园里对学长的喜欢，更多是投射还是真了解？", reason: "校园身份明确，适合年轻受众。", link: "https://www.xiaohongshu.com/search_result/68833e8f000000001c034222" },
+      { title: "和竹马同路十几年，我从没说过我喜欢他", author: "飘曳", date: "6天前", engagement: "10", theme: "暗恋/青春", shape: "长文/连载", keyword: "青梅竹马 暗恋 真实故事", priority: "high", collectionDate: "2026-05-19 新增", angle: "多年竹马关系里一直没说出口的暗恋。", question: "青梅竹马里的喜欢，是最容易被看见，还是最容易被忽略？", reason: "正文标题和标签都指向长篇连载，脱离截图可复述，适合故事化改写。", link: "https://www.xiaohongshu.com/search_result/6a03dcad00000000060359db" },
+      { title: "我曾经给暗恋的男生写了一本书", author: "镜子", date: "2025-07-01", engagement: "45", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 投稿 真实经历", priority: "high", collectionDate: "2026-05-19 新增", angle: "把一段暗恋写成一本书，动作感和记忆点很强。", question: "如果你曾经为一个人写过很多文字，那到底是在爱他，还是在保存当时的自己？", reason: "标题自带完整故事动作，不依赖聊天截图，二创难度低。", link: "https://www.xiaohongshu.com/search_result/6863d0c80000000023006871" },
+      { title: "求助：暗恋了十年的人北大直博了，怎么释怀…", author: "小红薯621C3999", date: "2025-03-03", engagement: "2263", theme: "暗恋/青春", shape: "文字/图文", keyword: "十年暗恋 释怀 真实故事", priority: "high", collectionDate: "2026-05-19 新增", angle: "十年暗恋遇到人生差距后的自我消化。", question: "暗恋很多年的人越走越远，最难释怀的是他，还是自己的青春？", reason: "冲突清楚，讨论空间大，适合改成观点型故事。", link: "https://www.xiaohongshu.com/search_result/67c480ad000000000603e016" },
+      { title: "是谁27岁还惦记17岁暗恋的人", author: "黄金小贝", date: "01-02", engagement: "805", theme: "暗恋/青春", shape: "文字/图文", keyword: "青春遗憾 暗恋故事", priority: "high", collectionDate: "2026-05-19 新增", angle: "27岁回看17岁的暗恋，时间跨度带来后劲。", question: "为什么十七岁喜欢过的人，会在二十七岁还突然想起？", reason: "标题直接建立时间差，容易引发评论区共鸣。", link: "https://www.xiaohongshu.com/search_result/6956b761000000001e0263c4" },
+      { title: "超百万人追过的暗恋故事！完整版来了！！", author: "软刺不在线", date: "03-12", engagement: "302", theme: "暗恋/青春", shape: "长文/连载", keyword: "暗恋故事 完整版 长文", priority: "high", collectionDate: "2026-05-19 新增", angle: "把高关注暗恋故事整理成完整版。", question: "为什么完整的暗恋故事，比片段式心动更让人想追下去？", reason: "完整版属性强，适合系列化，但需复核是否和旧素材主题重复。", link: "https://www.xiaohongshu.com/search_result/69afc02f000000002602ddf0" },
+      { title: "关于我们当时分手的真实原因", author: "波塞冬的小饼干", date: "2024-09-09", engagement: "3412", theme: "分手/复盘", shape: "文字/图文", keyword: "分手 复盘 真实故事", priority: "high", collectionDate: "2026-05-19 新增", angle: "回头解释一段关系真正结束的原因。", question: "一段感情真正分开的原因，是当时说出口的那个理由吗？", reason: "复盘属性明确，不依赖聊天记录，适合做关系拆解。", link: "https://www.xiaohongshu.com/search_result/66defbad000000002603ce4f" },
+      { title: "深刻，我收到了20岁前女友的三千字告别信", author: "momo", date: "2025-05-19", engagement: "687", theme: "分手/复盘", shape: "文字/图文", keyword: "分手后 告别信 长文", priority: "high", collectionDate: "2026-05-19 新增", angle: "用三千字告别信承载一段关系的收尾。", question: "分手后的长信，是告别，还是最后一次希望被理解？", reason: "三千字告别信天然适合口播复述，情绪浓度高。", link: "https://www.xiaohongshu.com/search_result/681b3bad000000000f031f0a" },
+      { title: "我居然把我的初恋故事写了下来", author: "静待花开", date: "2025-05-16", engagement: "61", theme: "暗恋/青春", shape: "文字/图文", keyword: "初恋故事 写下来", priority: "normal", collectionDate: "2026-05-19 新增", angle: "把初恋从记忆变成文字。", question: "你会不会把初恋写下来，像给过去的自己留证据？", reason: "标题指向完整叙事，互动不高但二创门槛低。", link: "https://www.xiaohongshu.com/search_result/682741a600000000120017f4" },
+      { title: "把和前任的事写了出来，投稿了出去", author: "Echoo", date: "2025-05-12", engagement: "8", theme: "复合/前任/断联", shape: "文字/图文", keyword: "前任 投稿 真实故事", priority: "normal", collectionDate: "2026-05-19 新增", angle: "把前任故事投稿出去，完成一次公开整理。", question: "把前任写成故事发出去，是放下，还是还没放下？", reason: "投稿属性符合可复述要求，适合低互动真实表达观察。", link: "https://www.xiaohongshu.com/search_result/682154ac000000001101c821" },
+      { title: "用长篇大论来记录这段感情的结束", author: "farewell （深情）", date: "2025-06-30", engagement: "5", theme: "分手/复盘", shape: "长文/连载", keyword: "分手后 小长文 真实故事", priority: "normal", collectionDate: "2026-05-19 新增", angle: "用长文记录一段感情如何结束。", question: "为什么感情结束时，人反而最想把每个细节写清楚？", reason: "明确长文记录，复刻成文案的可操作性强。", link: "https://www.xiaohongshu.com/search_result/686248b7000000000d01904b" },
+      { title: "相爱七年半，我们和平分手了", author: "耶耶豆包", date: "2025-05-11", engagement: "71", theme: "分手/复盘", shape: "文字/图文", keyword: "七年感情 分手复盘", priority: "high", collectionDate: "2026-05-19 新增", angle: "七年半长恋爱关系的和平结束。", question: "和平分手真的更体面，还是只是更安静地痛？", reason: "时间跨度强，故事完整度预期高。", link: "https://www.xiaohongshu.com/search_result/6820679a000000002202e161" },
+      { title: "今天终于为7年的感情画了一个句号", author: "飞天小女警", date: "2025-07-20", engagement: "676", theme: "分手/复盘", shape: "文字/图文", keyword: "七年感情 画句号", priority: "high", collectionDate: "2026-05-19 新增", angle: "给七年感情做一个正式收束。", question: "一段七年的感情，真正画句号的瞬间是什么？", reason: "句号意象清晰，适合做告别型二创。", link: "https://www.xiaohongshu.com/search_result/687c5b660000000017030112" },
+      { title: "最后一封告别信", author: "紫檀", date: "2025-08-24", engagement: "58", theme: "分手/复盘", shape: "文字/图文", keyword: "最后一封告别信", priority: "normal", collectionDate: "2026-05-19 新增", angle: "用最后一封信结束一段关系。", question: "最后一封告别信，是写给对方，还是写给还没放下的自己？", reason: "信件结构适合复述和改写，二创难度低。", link: "https://www.xiaohongshu.com/search_result/68aa844e000000001d00a90f" },
+      { title: "年上｜分手后在朋友的婚礼上重逢", author: "柿柿绵羊2.0", date: "2025-05-31", engagement: "3999", theme: "复合/前任/断联", shape: "文字/图文", keyword: "前任 重逢 真实故事", priority: "high", collectionDate: "2026-05-19 新增", angle: "分手后在婚礼场景里重逢前任。", question: "如果在朋友婚礼上遇到前任，你会假装体面还是被瞬间击中？", reason: "场景强、开头好写，适合短视频故事钩子。", link: "https://www.xiaohongshu.com/search_result/67ff2350000000001201c473" },
+      { title: "九年，全剧终", author: "Tammy", date: "03-29", engagement: "864", theme: "分手/复盘", shape: "文字/图文", keyword: "九年感情 全剧终", priority: "high", collectionDate: "2026-05-19 新增", angle: "用全剧终形容九年关系结束。", question: "九年感情结束时，最难告别的是爱情，还是共同生活的角色？", reason: "标题短但冲击力强，适合做高浓度故事。", link: "https://www.xiaohongshu.com/search_result/69b985dc0000000023015df3" },
+      { title: "被冷暴力的第3个月，我终于敢说不", author: "温屿心事", date: "02-25", engagement: "赞", theme: "冷暴力/纠纷", shape: "文字/图文", keyword: "冷暴力 真实经历 文字", priority: "high", collectionDate: "2026-05-19 新增", angle: "被冷处理三个月后终于建立边界。", question: "冷暴力持续到第几天，沉默就不再是冷静，而是伤害？", reason: "时间点和转折都清晰，适合积极向讨论。", link: "https://www.xiaohongshu.com/search_result/699ec041000000001d012115" }
     ];
 
     const sourceData = {
+      "6a03dcad00000000060359db": { href: "https://www.xiaohongshu.com/search_result/6a03dcad00000000060359db?xsec_token=ABOoRsSHQD3iQ9Pm4GH9Lxe7iPysEUES9cLg6bVaImTeY=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191516/86f5c366b183f42c0f9f36cd7dd1ba17/notes_pre_post/1040g3k03203eqliuig005nr37n909c0ocle38qo!nc_n_webp_mw_1" },
+      "6863d0c80000000023006871": { href: "https://www.xiaohongshu.com/search_result/6863d0c80000000023006871?xsec_token=AB8kGuWYqCjUlNsjfmpQwGCa73bSeYIvkzEd95Ez2jHTA=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191516/935236447c9f89d7baa164325a36b8aa/1040g2sg31jd5ev9534j05os32t3nra7k9r9ke08!nc_n_webp_mw_1" },
+      "67c480ad000000000603e016": { href: "https://www.xiaohongshu.com/search_result/67c480ad000000000603e016?xsec_token=ABXExhLoyh4XSwiowppiWOvwcojfwhOs-nMC8l2Aku6-U=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191516/47e2b6296cc819f70bf506dd4a0aa701/notes_pre_post/1040g3k831ehih3af0s005ogrhneod2q2iobd5p0!nc_n_webp_mw_1" },
+      "6956b761000000001e0263c4": { href: "https://www.xiaohongshu.com/search_result/6956b761000000001e0263c4?xsec_token=ABSJON618ZAVuulWf6kuUwb-OEWRn_rCVa9m_BcXgG9aI=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191516/9a0181d3c5bc1ae6738776c67033467b/notes_pre_post/1040g3k031qqa81ndg00049olni96kdsshojdn4g!nc_n_webp_mw_1" },
+      "69afc02f000000002602ddf0": { href: "https://www.xiaohongshu.com/search_result/69afc02f000000002602ddf0?xsec_token=ABFoEBW5ySLPEJfin_HaixBfXI08hr5Tx1nB5v98NpRa0=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191516/c5512422fef63ae67d11af5171111ef4/notes_pre_post/1040g3k031ticts25le005nu8k7e098k0tf4uck8!nc_n_webp_mw_1" },
+      "66defbad000000002603ce4f": { href: "https://www.xiaohongshu.com/search_result/66defbad000000002603ce4f?xsec_token=ABgL9LpOtESN9DilM6eaXDCGdesCE6W_WMod1AZxlZXrg=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191518/b6f5f933d7c6d60c9c8e2997a78fab5e/1040g008317hees6hk4005o1j8pug981il1csuo8!nc_n_webp_mw_1" },
+      "681b3bad000000000f031f0a": { href: "https://www.xiaohongshu.com/search_result/681b3bad000000000f031f0a?xsec_token=AB9ZzTP_s-RaWNaqibxvYHvVyTbdCiFxnZVZOoYDjf6PY=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191518/ba7c8e1ad25f2c25f1fcef5ad226c930/1040g00831h698sss3q005oc9af040p471bumulo!nc_n_webp_mw_1" },
+      "682741a600000000120017f4": { href: "https://www.xiaohongshu.com/search_result/682741a600000000120017f4?xsec_token=ABe-QXCAbVhoaQm5nmtiNQQ-TTZ0CwpDNw7mq2e78PMRg=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191518/9fdaee382cf0371429dee30d4b25d39f/1040g00831hi0u8utjo0g5p9f5kbaldgdda7l5r0!nc_n_webp_mw_1" },
+      "682154ac000000001101c821": { href: "https://www.xiaohongshu.com/search_result/682154ac000000001101c821?xsec_token=ABrQqhL12YSthHTvbEdW3r6u_P2ZWf9Eswm6GCs81iYUg=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191518/681c00330761acab301572957cca4a23/1040g2sg31hc7qivp3q704btpm3qbek1hbbvqaig!nc_n_webp_mw_1" },
+      "686248b7000000000d01904b": { href: "https://www.xiaohongshu.com/search_result/686248b7000000000d01904b?xsec_token=ABLnJP-h-sBLN19acOJyArKbOFnHdw5_MnCCNYKYUDzHs=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191518/26c8d36ebdb6c09a99cf8716d33c4430/notes_pre_post/1040g3k831jbli5j0ie705nlktbag8reqbslrpkg!nc_n_webp_mw_1" },
+      "6820679a000000002202e161": { href: "https://www.xiaohongshu.com/search_result/6820679a000000002202e161?xsec_token=ABfsP-lTxQHZlO50ZvKB9mFOfy43zEefnHX2rbGMrpIQs=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191518/0664f5133d003e36791a8fc515bc2300/1040g00831hb9l1vbk2104b8ddjrqddlgefcs7l0!nc_n_webp_mw_1" },
+      "687c5b660000000017030112": { href: "https://www.xiaohongshu.com/search_result/687c5b660000000017030112?xsec_token=ABiQXQm_Sf-DC-oP5pqV1F_2htFN5U863Adk82rgBb3ZA=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191518/09180bed125ba8d7471648d1c18da99c/1040g2sg31k54cru82ph049qeqroh5a4e63576ag!nc_n_webp_mw_1" },
+      "68aa844e000000001d00a90f": { href: "https://www.xiaohongshu.com/search_result/68aa844e000000001d00a90f?xsec_token=ABJlZwtdV4NzNHiuIRmeoIBjaq7D2oZRSnfsi9it1R-Sw=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191518/7ff01f1092d04678bd5e4f6ac0a5cd6d/notes_pre_post/1040g3k031li6ql4nl03g5p6r7ji0hvtofjg7qig!nc_n_webp_mw_1" },
+      "67ff2350000000001201c473": { href: "https://www.xiaohongshu.com/search_result/67ff2350000000001201c473?xsec_token=AB8Qp6iUiHBEVKUeRuUgxmD8ekEONFciREe5CuUHXQaTg=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191518/33a6be422e9125e2ff5143d0505e2fb8/1040g2sg31gar9ih02qdg5o1c13q098bma5dfqn0!nc_n_webp_mw_1" },
+      "69b985dc0000000023015df3": { href: "https://www.xiaohongshu.com/search_result/69b985dc0000000023015df3?xsec_token=ABTTciVgvHvJskkYiHkZqqJ8wgngkyPYLgYb5oOiMoDaQ=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191518/a26769f59c50f6767bef85aa81b8cc34/notes_pre_post/1040g3k831ua8g9q9ig704ahcspbmmd6006t8l60!nc_n_webp_mw_1" },
+      "699ec041000000001d012115": { href: "https://www.xiaohongshu.com/search_result/699ec041000000001d012115?xsec_token=ABEE1FIUoYvHPfrkDv37xKHVCIY61JxuFYen_Xl-44DdY=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191518/5de95705eb0e598c87c522d3b887e5c4/1040g2sg31so2u49c84005olrehhg0pqefib9mio!nc_n_webp_mw_1" },
       "69ff0c2a000000001a036fa8": { href: "https://www.xiaohongshu.com/search_result/69ff0c2a000000001a036fa8?xsec_token=AB7ioi3RdAt2GsxjnVgNouf0SAE0T-Wyn-pgHDEVfZRQQ=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191344/72ef28964ed260de3571c12da4db100f/spectrum/1040g34o31vunucsg1m005q8nuh2ttoiee5uksg8!nc_n_webp_mw_1" },
       "688ce4bb000000002203b629": { href: "https://www.xiaohongshu.com/search_result/688ce4bb000000002203b629?xsec_token=ABOKUkBq342iMyb-qfdrBAJtAY8owR0Q6aDfBoH_EdRnA=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/d2e4c4615f721f344118c88c0758d4cc/1040g00831kl94u52j2104a7117rfslkrf71k9uo!nc_n_webp_mw_1" },
       "695e12b1000000000a02ce30": { href: "https://www.xiaohongshu.com/search_result/695e12b1000000000a02ce30?xsec_token=ABQK2sGrSBMKR1tL1TMG4LmKoKFF81oNi-O0P4LkYUOb8=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/b4d2fcf9f16c07599401b702d242f9ac/1040g2sg31r1i0g3j74j05o1sp4o091f24n89hd8!nc_n_webp_mw_1" },
@@ -814,16 +849,19 @@
       query: "",
       theme: "all",
       shape: "all",
-      priority: "all"
+      priority: "all",
+      collectionDate: "all"
     };
 
     const cardsEl = document.querySelector("#cards");
     const emptyEl = document.querySelector("#empty");
     const totalEl = document.querySelector("#totalCount");
+    const usableCountEl = document.querySelector("#usableCount");
     const toastEl = document.querySelector("#toast");
     const themeFilter = document.querySelector("#themeFilter");
     const shapeFilter = document.querySelector("#shapeFilter");
     const priorityFilter = document.querySelector("#priorityFilter");
+    const dateFilter = document.querySelector("#dateFilter");
     const searchEl = document.querySelector("#search");
     const chipsEl = document.querySelector("#themeChips");
     const keywordBoardEl = document.querySelector("#keywordBoard");
@@ -867,6 +905,7 @@
 
     const themes = [...new Set(usablePosts.map(post => post.theme))];
     const shapes = [...new Set(usablePosts.map(post => post.shape))];
+    const collectionDates = [...new Set(usablePosts.map(post => post.collectionDate || "2026-05-19 初始"))];
 
     function escapeHtml(value) {
       return String(value)
@@ -893,6 +932,10 @@
 
     shapes.forEach(shape => {
       shapeFilter.append(new Option(shape, shape));
+    });
+
+    collectionDates.forEach(date => {
+      dateFilter.append(new Option(date, date));
     });
 
     function saveKeywords() {
@@ -999,7 +1042,8 @@
         const matchesTheme = state.theme === "all" || post.theme === state.theme;
         const matchesShape = state.shape === "all" || post.shape === state.shape;
         const matchesPriority = state.priority === "all" || post.priority === state.priority;
-        return matchesQuery && matchesTheme && matchesShape && matchesPriority;
+        const matchesDate = state.collectionDate === "all" || (post.collectionDate || "2026-05-19 初始") === state.collectionDate;
+        return matchesQuery && matchesTheme && matchesShape && matchesPriority && matchesDate;
       });
     }
 
@@ -1021,7 +1065,7 @@
                     <span class="index">${String(index + 1).padStart(2, "0")}</span>
                     <h3>${post.title}</h3>
                   </div>
-                  <div class="meta">${post.author} · ${post.date} · ${post.engagement} · 搜索词：${post.keyword}</div>
+                  <div class="meta">${post.author} · ${post.date} · ${post.engagement} · 采集：${post.collectionDate || "2026-05-19 初始"} · 搜索词：${post.keyword}</div>
                 </div>
                 <div class="badges">
                   <span class="badge theme">${post.theme}</span>
@@ -1049,6 +1093,7 @@
     function render() {
       const list = visiblePosts();
       totalEl.textContent = list.length;
+      usableCountEl.textContent = usablePosts.length;
       cardsEl.innerHTML = list.map(cardTemplate).join("");
       emptyEl.style.display = list.length ? "none" : "block";
       document.querySelectorAll(".chip").forEach(chip => {
@@ -1084,6 +1129,10 @@
     });
     priorityFilter.addEventListener("change", event => {
       state.priority = event.target.value;
+      render();
+    });
+    dateFilter.addEventListener("change", event => {
+      state.collectionDate = event.target.value;
       render();
     });
     viewTabs.forEach(tab => {
