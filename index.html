@@ -1,0 +1,1105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小红书情感选题素材库</title>
+  <style>
+    :root {
+      --bg: #fff8fb;
+      --panel: rgba(255, 255, 255, 0.88);
+      --ink: #231f2b;
+      --muted: #726b7e;
+      --line: rgba(255, 124, 166, 0.22);
+      --rose: #ff4f87;
+      --rose-soft: #ffe3ee;
+      --teal: #12a89d;
+      --teal-soft: #d9faf6;
+      --blue: #4e74ff;
+      --blue-soft: #e6ecff;
+      --gold: #be7a00;
+      --gold-soft: #fff1c9;
+      --violet: #8b5cf6;
+      --mint: #35d0ad;
+      --sun: #ffd166;
+      --shadow: 0 18px 48px rgba(78, 116, 255, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 8%, rgba(255, 111, 173, 0.24), transparent 30%),
+        radial-gradient(circle at 92% 12%, rgba(98, 220, 210, 0.28), transparent 32%),
+        radial-gradient(circle at 50% 92%, rgba(122, 162, 255, 0.22), transparent 34%),
+        linear-gradient(135deg, #f7fbff 0%, #fff6fc 48%, #effbff 100%);
+      min-height: 100vh;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .shell {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px 24px 40px;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: end;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      border-radius: 36px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 240, 249, 0.86));
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .subline {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .view-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .view-tab {
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--muted);
+      padding: 10px 16px;
+      cursor: pointer;
+      font-weight: 800;
+      box-shadow: 0 10px 22px rgba(78, 116, 255, 0.08);
+    }
+
+    .view-tab.active {
+      color: #fff;
+      background: linear-gradient(135deg, var(--rose), var(--violet));
+      box-shadow: 0 14px 30px rgba(255, 79, 135, 0.28);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 112px);
+      gap: 10px;
+    }
+
+    .stat {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 10px 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat b {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 12px;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: minmax(240px, 1fr) 170px 170px 150px;
+      gap: 10px;
+      margin: 18px 0;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.82);
+      border-radius: 34px;
+      background: linear-gradient(135deg, rgba(255, 248, 253, 0.86), rgba(239, 251, 255, 0.9));
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .field,
+    .select {
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--ink);
+      padding: 0 12px;
+      outline: none;
+    }
+
+    .field:focus,
+    .select:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 4px rgba(53, 208, 173, 0.18);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    aside {
+      position: sticky;
+      top: 76px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel h2 {
+      margin: 0 0 12px;
+      font-size: 15px;
+      letter-spacing: 0;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      padding: 6px 10px;
+      font-size: 12px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .chip.active {
+      border-color: var(--rose);
+      background: linear-gradient(135deg, var(--rose-soft), #fff7d6);
+      color: var(--rose);
+      font-weight: 700;
+    }
+
+    .keyword-list {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .keyword-list strong {
+      color: var(--ink);
+    }
+
+    .cards {
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+      transition: transform 140ms ease, border-color 140ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-1px);
+      border-color: rgba(25, 114, 107, 0.44);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 152px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .preview {
+      position: sticky;
+      top: 92px;
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: linear-gradient(135deg, #fff3fb, #e9fbff);
+      text-decoration: none;
+    }
+
+    .preview img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .preview-fallback {
+      height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+      text-align: center;
+    }
+
+    .card-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .title-row {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+    }
+
+    .index {
+      flex: 0 0 auto;
+      min-width: 32px;
+      height: 24px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--sun), #ff8ab3);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .meta {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .badge {
+      border-radius: 999px;
+      padding: 6px 9px;
+      font-size: 12px;
+      line-height: 1;
+      white-space: nowrap;
+      font-weight: 700;
+    }
+
+    .badge.theme {
+      background: var(--teal-soft);
+      color: var(--teal);
+    }
+
+    .badge.shape {
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+
+    .badge.priority {
+      background: var(--gold-soft);
+      color: var(--gold);
+    }
+
+    .body-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .note {
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .note b {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 4px;
+      font-size: 12px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .action {
+      height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink);
+      padding: 0 12px;
+      cursor: pointer;
+      display: inline-grid;
+      place-items: center;
+      text-decoration: none;
+    }
+
+    .view {
+      display: block;
+    }
+
+    .view.hidden {
+      display: none;
+    }
+
+    .keyword-workspace {
+      display: grid;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .keyword-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      padding: 18px;
+      border-radius: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      background: linear-gradient(135deg, rgba(255, 227, 238, 0.92), rgba(217, 250, 246, 0.92));
+      box-shadow: var(--shadow);
+    }
+
+    .keyword-hero h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .keyword-hero p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .keyword-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .keyword-board {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      align-items: start;
+    }
+
+    .keyword-column {
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 30px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .keyword-column h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+
+    .keyword-add {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .keyword-add input {
+      min-width: 0;
+      height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0 12px;
+      outline: none;
+      background: #fff;
+    }
+
+    .mini-button {
+      height: 36px;
+      border: 0;
+      border-radius: 999px;
+      padding: 0 12px;
+      background: linear-gradient(135deg, var(--mint), var(--blue));
+      color: #fff;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .keyword-items {
+      display: grid;
+      gap: 8px;
+    }
+
+    .keyword-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 8px;
+    }
+
+    .keyword-item input {
+      min-width: 0;
+      border: 0;
+      outline: none;
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .delete-keyword {
+      width: 28px;
+      height: 28px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--rose-soft);
+      color: var(--rose);
+      cursor: pointer;
+      font-weight: 900;
+    }
+
+    .action:hover {
+      border-color: var(--rose);
+      color: var(--rose);
+    }
+
+    .empty {
+      display: none;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 26px;
+      color: var(--muted);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translateX(-50%) translateY(12px);
+      opacity: 0;
+      pointer-events: none;
+      background: var(--ink);
+      color: #fff;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 13px;
+      transition: opacity 160ms ease, transform 160ms ease;
+      z-index: 20;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .topbar,
+      .layout,
+      .toolbar,
+      .body-grid,
+      .keyword-hero,
+      .keyword-board {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      aside,
+      .toolbar {
+        position: static;
+      }
+
+      .card-head {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid {
+        grid-template-columns: 120px minmax(0, 1fr);
+      }
+
+      .preview {
+        position: static;
+      }
+
+      .badges {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .shell {
+        padding: 18px 14px 28px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .title-row {
+        align-items: flex-start;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .preview {
+        max-height: 260px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div>
+        <h1>小红书恋爱情感选题素材库</h1>
+        <div class="subline">2026-05-19 · 文字/图文优先 · 仅展示可打开且有封面的帖子</div>
+        <nav class="view-tabs" aria-label="页面切换">
+          <button class="view-tab active" type="button" data-view="materials">素材库</button>
+          <button class="view-tab" type="button" data-view="keywords">关键词库</button>
+        </nav>
+      </div>
+      <div class="stats">
+        <div class="stat"><b id="totalCount">47</b><span>候选帖子</span></div>
+        <div class="stat"><b>7</b><span>主题方向</span></div>
+        <div class="stat"><b>47</b><span>可用原帖</span></div>
+      </div>
+    </header>
+
+    <section id="materialsToolbar" class="toolbar view" aria-label="素材筛选">
+      <input id="search" class="field" type="search" placeholder="搜索标题、作者、关键词、讨论点">
+      <select id="themeFilter" class="select" aria-label="主题">
+        <option value="all">全部主题</option>
+      </select>
+      <select id="shapeFilter" class="select" aria-label="形态">
+        <option value="all">全部形态</option>
+      </select>
+      <select id="priorityFilter" class="select" aria-label="优先级">
+        <option value="all">全部优先级</option>
+        <option value="high">优先二创</option>
+        <option value="normal">普通候选</option>
+      </select>
+    </section>
+
+    <main id="materialsView" class="layout view">
+      <aside>
+        <section class="panel">
+          <h2>主题速筛</h2>
+          <div id="themeChips" class="chips"></div>
+        </section>
+        <section class="panel">
+          <h2>关键词库</h2>
+          <div class="keyword-list">
+            <div><strong>核心：</strong>暗恋真实故事、暗恋聊天记录、分手复盘、冷暴力恋爱、断联后复联、友情以上恋人未满</div>
+            <div><strong>长尾：</strong>多年后才知道被喜欢、暗恋终止瞬间、前任高铁重逢、每年只发新年快乐的人、十五年后知道你结婚</div>
+            <div><strong>排除：</strong>MBTI、视角、氛围感、文案、推文、小说、短剧、塔罗、星座、教程、挽回机构</div>
+          </div>
+        </section>
+      </aside>
+
+      <section>
+        <div id="cards" class="cards"></div>
+        <div id="empty" class="empty">没有匹配的素材</div>
+      </section>
+    </main>
+
+    <section id="keywordsView" class="keyword-workspace view hidden">
+      <div class="keyword-hero">
+        <div>
+          <h2>关键词库</h2>
+          <p>把每天跑出来的新词、长尾表达和排除词存在这里，改完会自动保存在当前浏览器。</p>
+        </div>
+        <div class="keyword-actions">
+          <button id="copyKeywords" class="action" type="button">复制全部关键词</button>
+          <button id="resetKeywords" class="action" type="button">恢复默认</button>
+        </div>
+      </div>
+      <div id="keywordBoard" class="keyword-board"></div>
+    </section>
+  </div>
+  <div id="toast" class="toast">已复制</div>
+
+  <script>
+    const posts = [
+      { title: "原来也有人悄悄喜欢过我", author: "逆舟", date: "05-09", engagement: "2.5万", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "high", angle: "多年后才知道有人认真喜欢过自己。", question: "如果很多年后才发现有人因为你改变人生方向，你会感动还是有压力？", reason: "细节完整，情绪克制，后知后觉的被爱很容易引发共鸣。", link: "https://www.xiaohongshu.com/search_result/69ff0c2a000000001a036fa8" },
+      { title: "爱看的日记都be。。。", author: "小红薯69509658", date: "05-07", engagement: "18", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "normal", angle: "把暗恋日记当连续故事追，结局却让人失落。", question: "为什么我们会对陌生人的暗恋结局投入情绪？", reason: "低互动但适合做小众情绪切片。", link: "https://www.xiaohongshu.com/search_result/69fc760e00000000380220b0" },
+      { title: "和高中几乎没有交集的人在一起了（后续）", author: "巧克力泡芙", date: "2025-09-08", engagement: "1.7万", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "high", angle: "原本无交集的人，后来成为亲密关系。", question: "校园里没有交集的两个人，后来在一起算命运还是主动？", reason: "标题有反差和后续属性，容易带动追更。", link: "https://www.xiaohongshu.com/search_result/688ce4bb000000002203b629" },
+      { title: "故事不长，也不难讲；脸红开始，眼红散场", author: "我也不太了解他", date: "01-07", engagement: "1659", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "high", angle: "从心动到散场的短故事。", question: "一段关系最让人遗憾的是没开始，还是没好好结束？", reason: "标题天然适合短视频开头，情绪浓度高。", link: "https://www.xiaohongshu.com/search_result/695e12b1000000000a02ce30" },
+      { title: "怎么能忘记一个人", author: "橘子", date: "01-11", engagement: "1397", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "normal", angle: "忘记一个人的困难。", question: "真正忘掉一个人，是不想起，还是想起时不再痛？", reason: "讨论面宽，适合承接评论区故事。", link: "https://www.xiaohongshu.com/search_result/6962c522000000001a01e1a2" },
+      { title: "是哪一个瞬间让你的暗恋终止了？", author: "摇摇发呆脑", date: "2025-01-25", engagement: "771", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "high", angle: "暗恋结束的具体瞬间。", question: "你是在哪一个瞬间突然不喜欢那个人的？", reason: "强互动提问型标题，很适合征集评论。", link: "https://www.xiaohongshu.com/search_result/679437b8000000002902fb00" },
+      { title: "这是宝贵的心跳", author: "momo！", date: "2025-03-25", engagement: "1.8万", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "high", angle: "把心动当成青春里珍贵的体验。", question: "没有结果的心动，还算不算一段值得珍惜的经历？", reason: "互动高，表达温柔，适合积极向讨论。", link: "https://www.xiaohongshu.com/search_result/67e199a1000000000302abe6" },
+      { title: "和高中暗恋的人再次见面（听听我的故事吧）", author: "momo", date: "03-05", engagement: "218", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "high", angle: "多年后重逢高中暗恋对象。", question: "再见到曾经暗恋的人，你会想确认答案吗？", reason: "重逢场景明确，容易展开故事线。", link: "https://www.xiaohongshu.com/search_result/69a888e3000000002202ed57" },
+      { title: "讲个故事", author: "不想学习", date: "01-21", engagement: "6", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "normal", angle: "低互动真实故事候选。", question: "小号低互动内容里是不是更容易出现真实表达？", reason: "标题弱但可能是原生故事，适合复核。", link: "https://www.xiaohongshu.com/search_result/696fd607000000001a029870" },
+      { title: "我喜欢了一个男生三十一次", author: "小红薯69944D89", date: "02-16", engagement: "11", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "normal", angle: "反复心动、反复确认喜欢。", question: "喜欢一个人很多次，是深情还是执念？", reason: "标题有记忆点，适合做细腻情绪选题。", link: "https://www.xiaohongshu.com/search_result/69933df4000000000e03cc65" },
+      { title: "十几岁暗恋的开场真的很老套", author: "欠九莫厌风", date: "05-10", engagement: "516", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "high", angle: "老套但真实的青春暗恋开场。", question: "为什么青春暗恋总是老套，却还是让人心动？", reason: "有青春感和自嘲感，适合年轻人互动。", link: "https://www.xiaohongshu.com/search_result/6a005c5a0000000007012d07" },
+      { title: "喜欢了五年的男生加上好友后续", author: "阿珍呐～", date: "2025-10-27", engagement: "1.5万", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "high", angle: "五年暗恋终于加上好友后的后续。", question: "暗恋很久的人突然进入你的生活，你会勇敢推进吗？", reason: "强后续属性，互动高，适合系列化。", link: "https://www.xiaohongshu.com/search_result/68ff51fe000000000500248e" },
+      { title: "和过去的青春里和解了", author: "午夜煎饼", date: "2025-04-09", engagement: "1万", theme: "暧昧/拉扯", shape: "聊天记录/图文", keyword: "暗恋 聊天记录 亲身经历", priority: "high", angle: "通过聊天记录完成青春和解。", question: "你有没有哪段聊天记录，让你突然和过去和解？", reason: "聊天记录形态利于二创画面呈现。", link: "https://www.xiaohongshu.com/search_result/67f66fee000000000903a1be" },
+      { title: "和crush的后续来了！", author: "momo的碎碎念", date: "2024-07-21", engagement: "5959", theme: "暧昧/拉扯", shape: "聊天记录/图文", keyword: "暗恋 聊天记录 亲身经历", priority: "normal", angle: "crush关系后续。", question: "crush有了后续，什么时候该主动推进关系？", reason: "有追更感，适合做轻量话题。", link: "https://www.xiaohongshu.com/search_result/669c7a990000000025016e70" },
+      { title: "敏感又拧巴的我，直到遇见了你", author: "沐黎", date: "2天前", engagement: "2.4万", theme: "暧昧/拉扯", shape: "聊天记录/图文", keyword: "暗恋 聊天记录 亲身经历", priority: "high", angle: "敏感型人格遇到稳定回应。", question: "好的关系会治愈拧巴，还是只会照见拧巴？", reason: "近期高互动，兼具情绪价值和讨论度。", link: "https://www.xiaohongshu.com/search_result/6a070047000000003601fc3e" },
+      { title: "当我突然得知别人长达11年的暗恋是关于我", author: "Katrina", date: "04-01", engagement: "6472", theme: "暧昧/拉扯", shape: "聊天记录/图文", keyword: "暗恋 聊天记录 亲身经历", priority: "high", angle: "被长期暗恋后的震动。", question: "长达十一年的暗恋被当事人知道，是浪漫还是负担？", reason: "信息差强，标题自带戏剧张力。", link: "https://www.xiaohongshu.com/search_result/69cc05c5000000001a0346e4" },
+      { title: "关于1119", author: "双桨鸿惊", date: "05-08", engagement: "366", theme: "暧昧/拉扯", shape: "聊天记录/图文", keyword: "暗恋 聊天记录 亲身经历", priority: "normal", angle: "日期存档式情感节点。", question: "为什么一些普通日期会变成感情里的纪念碑？", reason: "适合做细节化叙事，但需复核正文。", link: "https://www.xiaohongshu.com/search_result/69fd3fb60000000023014b89" },
+      { title: "在喜欢你的第十五年知道你要结婚了", author: "芝士锅包肉", date: "04-12", engagement: "3639", theme: "暧昧/拉扯", shape: "聊天记录/图文", keyword: "暗恋 聊天记录 亲身经历", priority: "high", angle: "十五年喜欢以对方结婚作为终点。", question: "如果喜欢很多年的人要结婚了，你会祝福还是崩溃？", reason: "长时间跨度和终局冲击强。", link: "https://www.xiaohongshu.com/search_result/69db01c80000000022024a6b" },
+      { title: "那个每年只发新年快乐的人的心声被听见了", author: "Shirla码字的奴", date: "2025-02-20", engagement: "1万", theme: "暧昧/拉扯", shape: "聊天记录/图文", keyword: "暗恋 聊天记录 亲身经历", priority: "high", angle: "一年一次的问候背后藏着长久喜欢。", question: "只在节日联系的人，是放不下还是不敢靠近？", reason: "有年轻人熟悉的低频联系场景。", link: "https://www.xiaohongshu.com/search_result/67b6fccf000000000703526c" },
+      { title: "我的暗恋…终于要彻底结束了", author: "软刺不在线", date: "04-30", engagement: "209", theme: "分手/复盘", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "high", angle: "主动为暗恋画上句号。", question: "暗恋要怎样才算真正结束？", reason: "适合做告别型选题。", link: "https://www.xiaohongshu.com/search_result/69eb4d390000000035031881" },
+      { title: "我选择以这种方式结束了这场盛大的暗恋", author: "niliii-", date: "2025-06-08", engagement: "1683", theme: "分手/复盘", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "high", angle: "给盛大暗恋一个自我完成式结尾。", question: "不被知道的暗恋，需要一个正式告别吗？", reason: "标题有仪式感，适合情绪向二创。", link: "https://www.xiaohongshu.com/search_result/683b6b0c0000000023015684" },
+      { title: "错过的人，不会再回来（真实故事）", author: "简言", date: "03-18", engagement: "65", theme: "分手/复盘", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "normal", angle: "错过后的不可逆。", question: "感情里的错过，真的没有第二次机会吗？", reason: "标题直接，适合评论区征集。", link: "https://www.xiaohongshu.com/search_result/69ba9190000000001e00ebcb" },
+      { title: "我的心已经等你好多年", author: "西北小玫瑰", date: "02-02", engagement: "2.2万", theme: "分手/复盘", shape: "聊天记录/图文", keyword: "暗恋 聊天记录 亲身经历", priority: "high", angle: "长时间等待一个人。", question: "等一个人很多年，是浪漫还是消耗？", reason: "互动很高，标题情绪集中。", link: "https://www.xiaohongshu.com/search_result/697f28430000000021028569" },
+      { title: "遗憾是人生的常态", author: "漏掉的小红薯", date: "昨天 23:58", engagement: "1", theme: "分手/复盘", shape: "聊天记录/图文", keyword: "暗恋 聊天记录 亲身经历", priority: "normal", angle: "低互动遗憾叙事。", question: "年轻人接受遗憾，是成熟还是没办法？", reason: "新帖低互动，适合观察潜力。", link: "https://www.xiaohongshu.com/search_result/6a0b37430000000035025040" },
+      { title: "那些后知后觉的喜欢", author: "博士", date: "2025-03-11", engagement: "505", theme: "分手/复盘", shape: "文字/图文", keyword: "多年后才知道被喜欢", priority: "normal", angle: "后知后觉回看喜欢。", question: "为什么我们总是太晚才看懂别人喜欢自己？", reason: "适合总结型二创。", link: "https://www.xiaohongshu.com/search_result/67cf947e000000002900c930" },
+      { title: "后知后觉的喜欢是最致命的", author: "小新不喝可乐", date: "2025-10-04", engagement: "1188", theme: "分手/复盘", shape: "文字/图文", keyword: "多年后才知道被喜欢", priority: "normal", angle: "迟到理解带来的冲击。", question: "后知后觉的喜欢为什么比当下心动更难忘？", reason: "标题观点鲜明，便于提炼金句。", link: "https://www.xiaohongshu.com/search_result/68e1271b00000000070141d2" },
+      { title: "多年后，收到高中同学的告白信", author: "柠柠檬", date: "2025-08-07", engagement: "62", theme: "分手/复盘", shape: "文字/图文", keyword: "多年后才知道被喜欢", priority: "high", angle: "多年后收到迟来的告白。", question: "迟来的告白，是补偿遗憾还是制造新的遗憾？", reason: "告白信场景明确，容易视觉化。", link: "https://www.xiaohongshu.com/search_result/68946395000000002502bfe8" },
+      { title: "1119存档。某些男的遇到问题态度如上。", author: "冥月", date: "05-08", engagement: "388", theme: "冷暴力/纠纷", shape: "聊天记录/图文", keyword: "暗恋 聊天记录 亲身经历", priority: "normal", angle: "冲突中看见对方处理问题的方式。", question: "遇到问题时的态度，会不会决定一段关系的结局？", reason: "聊天记录适合拆解沟通模式。", link: "https://www.xiaohongshu.com/search_result/69fdf5e20000000022027eb2" },
+      { title: "和公司已婚女同事暧昧到崩溃续", author: "妙笔花生9527", date: "05-09", engagement: "4", theme: "冷暴力/纠纷", shape: "文字/图文", keyword: "办公室暧昧 真实经历", priority: "normal", angle: "办公室暧昧与边界失控。", question: "职场暧昧最危险的边界在哪里？", reason: "冲突强，但需要谨慎处理价值导向。", link: "https://www.xiaohongshu.com/search_result/69f69432000000002301d205" },
+      { title: "尤其是最后一句 绝了", author: "一一", date: "2025-02-22", engagement: "484", theme: "冷暴力/纠纷", shape: "文字/图文", keyword: "冷暴力恋爱 真实经历", priority: "normal", angle: "关系里的关键一句话。", question: "哪一句话让你意识到这段关系不能继续了？", reason: "适合做评论征集型选题。", link: "https://www.xiaohongshu.com/search_result/67b9bbb70000000029039390" },
+      { title: "我被女朋友冷暴力1个月，感觉被逼着提分手", author: "超音速小青蛙", date: "2025-09-08", engagement: "65", theme: "冷暴力/纠纷", shape: "文字/图文", keyword: "冷暴力恋爱 真实经历", priority: "high", angle: "冷暴力让主动分手的人背负责任。", question: "冷暴力一个月，是不是已经等于默认分手？", reason: "问题明确，能引发边界讨论。", link: "https://www.xiaohongshu.com/search_result/68be381a000000001d00730e" },
+      { title: "为什么要冷暴力我", author: "nn", date: "2025-11-11", engagement: "740", theme: "冷暴力/纠纷", shape: "文字/图文", keyword: "冷暴力恋爱 真实经历", priority: "normal", angle: "被冷处理者的疑问。", question: "不回应到底是需要冷静，还是在惩罚对方？", reason: "适合做冷暴力科普和情绪讨论。", link: "https://www.xiaohongshu.com/search_result/69120d280000000003034465" },
+      { title: "冷暴力", author: "向日无忧", date: "2025-10-17", engagement: "1058", theme: "冷暴力/纠纷", shape: "文字/图文", keyword: "冷暴力恋爱 真实经历", priority: "normal", angle: "冷暴力关系样本。", question: "冷暴力第一次出现时，该沟通还是离开？", reason: "主题集中，可作为辅助素材。", link: "https://www.xiaohongshu.com/search_result/68f130d40000000007014102" },
+      { title: "现实版张陆让！！！我哭死", author: "rain", date: "2024-02-28", engagement: "1099", theme: "异地/现实压力", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "normal", angle: "现实版校园感情投射。", question: "为什么大家总爱用影视角色理解自己的青春暗恋？", reason: "有大众文化锚点，但需复核是否模板化。", link: "https://www.xiaohongshu.com/search_result/65dedc02000000000b01a77f" },
+      { title: "七年恋爱分手断联", author: "无敌小龚", date: "03-31", engagement: "2481", theme: "复合/前任/断联", shape: "文字/图文", keyword: "谈了多年分手 真实经历", priority: "high", angle: "长恋爱关系结束后的断联。", question: "谈了七年再断联，最难戒掉的是人还是习惯？", reason: "时间跨度强，适合深度复盘。", link: "https://www.xiaohongshu.com/search_result/69cbb7d100000000210106fd" },
+      { title: "分手十一年的前任，高铁相遇了太戏剧化了吧", author: "🤡", date: "2024-04-02", engagement: "3979", theme: "复合/前任/断联", shape: "文字/图文", keyword: "断联后 真实经历 恋爱", priority: "high", angle: "断联多年后和前任戏剧性重逢。", question: "如果和分手十一年的前任在高铁相遇，你会打招呼吗？", reason: "场景感强，非常适合短视频开头。", link: "https://www.xiaohongshu.com/search_result/660bdb96000000001a00f73d" },
+      { title: "关于断联五个月后回来的回避型..", author: "叫我Nia", date: "05-08", engagement: "128", theme: "复合/前任/断联", shape: "文字/图文", keyword: "断联后 真实经历 恋爱", priority: "normal", angle: "回避型断联后回归。", question: "断联后回来的人，是真的想修复还是只是不适应失去？", reason: "关系模式讨论度高。", link: "https://www.xiaohongshu.com/search_result/69fcb8e2000000003700eb81" },
+      { title: "断联后复联后的再断联", author: "离我远点", date: "2025-11-10", engagement: "180", theme: "复合/前任/断联", shape: "文字/图文", keyword: "断联后 真实经历 恋爱", priority: "normal", angle: "复联失败后的二次断联。", question: "复联后再次断联，是不是比第一次更伤？", reason: "结构清楚，适合复盘关系循环。", link: "https://www.xiaohongshu.com/search_result/6910be54000000000703922f" },
+      { title: "断联十年的初恋对象突然联系我", author: "怡宝厨Remastered", date: "2024-12-18", engagement: "68", theme: "复合/前任/断联", shape: "文字/图文", keyword: "断联后 真实经历 恋爱", priority: "high", angle: "初恋十年后突然回来。", question: "十年前的初恋突然联系你，你会回复吗？", reason: "初恋和十年两个元素都很抓人。", link: "https://www.xiaohongshu.com/search_result/6762f04f000000001402337f" },
+      { title: "飞机失联的八小时里他和我坦白了一切", author: "郭浩楠吃藕", date: "03-17", engagement: "6568", theme: "复合/前任/断联", shape: "文字/图文", keyword: "断联后 真实经历 恋爱", priority: "high", angle: "危机时刻触发坦白。", question: "人在害怕失去时说的话，可信度会更高吗？", reason: "标题强钩子，关系转折明显。", link: "https://www.xiaohongshu.com/search_result/69b955e4000000002200ff50" },
+      { title: "班里唯一的好朋友背着你偷偷烂掉了", author: "方士谦", date: "05-09", engagement: "5882", theme: "友情以上", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "high", angle: "好朋友关系里的隐藏崩坏。", question: "最好的朋友背着你变糟，是心疼多一点还是生气多一点？", reason: "友情和暗恋边界都有延展空间。", link: "https://www.xiaohongshu.com/search_result/69fe2690000000003502d555" },
+      { title: "拒绝朋友告白的经历", author: "可爱小熊BOO尼", date: "01-09", engagement: "9770", theme: "友情以上", shape: "文字/图文", keyword: "表白失败 真实经历", priority: "high", angle: "朋友告白被拒后如何相处。", question: "朋友告白失败后，还能回到朋友关系吗？", reason: "互动高，议题清楚。", link: "https://www.xiaohongshu.com/search_result/6960212e000000001a02c9c7" },
+      { title: "友谊以上，恋人未满", author: "不内耗", date: "03-06", engagement: "10", theme: "友情以上", shape: "文字/图文", keyword: "友情以上恋人未满 真实经历", priority: "normal", angle: "暧昧边界不清。", question: "友情以上恋人未满，最伤人的是谁？", reason: "低互动但主题精准。", link: "https://www.xiaohongshu.com/search_result/69aa23440000000015023a0c" },
+      { title: "友情之上，恋人未满是什么状态", author: "山尘没", date: "2025-08-25", engagement: "852", theme: "友情以上", shape: "文字/图文", keyword: "友情以上恋人未满 真实经历", priority: "normal", angle: "关系状态定义。", question: "关系不确定时，该享受暧昧还是及时问清楚？", reason: "适合做关系边界讨论。", link: "https://www.xiaohongshu.com/search_result/68abc27f000000001c03d428" },
+      { title: "一个真实的故事～", author: "瞎讲姐妹", date: "02-20", engagement: "3.1万", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "normal", angle: "高互动真实故事候选。", question: "为什么真实故事比完美爱情更能打动人？", reason: "互动高，但标题泛，需要复核内容。", link: "https://www.xiaohongshu.com/search_result/6997ffc0000000001a024be4" },
+      { title: "一段关于暗恋的故事", author: "周小辣", date: "2025-02-14", engagement: "905", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "normal", angle: "情人节暗恋故事。", question: "暗恋故事为什么常常比恋爱故事更有后劲？", reason: "标题直接，适合复核正文。", link: "https://www.xiaohongshu.com/search_result/67af4066000000001701c173" },
+      { title: "偶遇是蓄谋已久的巧合", author: "王雅佳Iris", date: "05-02", engagement: "7683", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "high", angle: "把偶遇设计成接近对方的方式。", question: "暗恋里的偶遇，是浪漫还是打扰？", reason: "金句式标题，话题边界值得讨论。", link: "https://www.xiaohongshu.com/search_result/69f56132000000003601da4a" },
+      { title: "暗恋最好的结局应该就是这样了", author: "天禾", date: "2025-07-14", engagement: "107", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "normal", angle: "暗恋的理想收束。", question: "暗恋最好的结局一定是在一起吗？", reason: "价值观正向，适合温柔讨论。", link: "https://www.xiaohongshu.com/search_result/67c530470000000007035fbe" },
+      { title: "我一直在哭", author: "笑脸薯饼。", date: "04-24", engagement: "146", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "normal", angle: "强情绪反应的故事候选。", question: "哪种感情瞬间会让你突然崩溃？", reason: "标题短而情绪强，需复核正文。", link: "https://www.xiaohongshu.com/search_result/69eb655100000000220273d9" },
+      { title: "希望能和学长好好在一起", author: "🍄哇喔", date: "2025-07-25", engagement: "466", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "normal", angle: "学长关系里的期待。", question: "校园里对学长的喜欢，更多是投射还是真了解？", reason: "校园身份明确，适合年轻受众。", link: "https://www.xiaohongshu.com/search_result/68833e8f000000001c034222" }
+    ];
+
+    const sourceData = {
+      "69ff0c2a000000001a036fa8": { href: "https://www.xiaohongshu.com/search_result/69ff0c2a000000001a036fa8?xsec_token=AB7ioi3RdAt2GsxjnVgNouf0SAE0T-Wyn-pgHDEVfZRQQ=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191344/72ef28964ed260de3571c12da4db100f/spectrum/1040g34o31vunucsg1m005q8nuh2ttoiee5uksg8!nc_n_webp_mw_1" },
+      "688ce4bb000000002203b629": { href: "https://www.xiaohongshu.com/search_result/688ce4bb000000002203b629?xsec_token=ABOKUkBq342iMyb-qfdrBAJtAY8owR0Q6aDfBoH_EdRnA=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/d2e4c4615f721f344118c88c0758d4cc/1040g00831kl94u52j2104a7117rfslkrf71k9uo!nc_n_webp_mw_1" },
+      "695e12b1000000000a02ce30": { href: "https://www.xiaohongshu.com/search_result/695e12b1000000000a02ce30?xsec_token=ABQK2sGrSBMKR1tL1TMG4LmKoKFF81oNi-O0P4LkYUOb8=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/b4d2fcf9f16c07599401b702d242f9ac/1040g2sg31r1i0g3j74j05o1sp4o091f24n89hd8!nc_n_webp_mw_1" },
+      "6962c522000000001a01e1a2": { href: "https://www.xiaohongshu.com/search_result/6962c522000000001a01e1a2?xsec_token=ABcgS8SiltztLu61Vy_6Wub56XN6X0xx_Z4SKWAHvpRCw=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/b07a3b5a096b7601dd64e078e41e9b62/notes_pre_post/1040g3k831r64obet0a705q5iuk3maodj5ulrsgo!nc_n_webp_mw_1" },
+      "679437b8000000002902fb00": { href: "https://www.xiaohongshu.com/search_result/679437b8000000002902fb00?xsec_token=ABOjQHld3jXLzG4fDaPGG8sLBKROBUISxPVNNLq35U9o8=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191344/1abbdb63443f2548e5e05703bba18d88/1040g2sg31d2e1c3u12605ppvsqn73c1tmrfrfs0!nc_n_webp_mw_1" },
+      "67e199a1000000000302abe6": { href: "https://www.xiaohongshu.com/search_result/67e199a1000000000302abe6?xsec_token=ABXBcpyPlQo3SiYhq46kiMQfUnHuUQZGoha3p0l2Clv0g=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/4ba13c85586831c9c5e2d6075007d924/1040g2sg31fe01n1h6ocg5p1na23526vf2hafnio!nc_n_webp_mw_1" },
+      "69a888e3000000002202ed57": { href: "https://www.xiaohongshu.com/search_result/69a888e3000000002202ed57?xsec_token=AB5XfClzJxIkNeDlrzK4xP7iWl98zh60f0e1FuHkZacGY=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/7c8ab0bbf74fbb2e8ee530fa7e6d30a5/1040g00831ta7ralq5e0g5n893cg4388lthmlbso!nc_n_webp_mw_1" },
+      "696fd607000000001a029870": { href: "https://www.xiaohongshu.com/search_result/696fd607000000001a029870?xsec_token=AB-x6Wa1s9I3UpRTpnXYLntCTivhIXRofY7mUFN1Z2mPc=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/ddc566f8278517ecf638264d612596ca/notes_pre_post/1040g3k831rit1dtr2g005p9n2qahgm3gdl3fcm8!nc_n_webp_mw_1" },
+      "69933df4000000000e03cc65": { href: "https://www.xiaohongshu.com/search_result/69933df4000000000e03cc65?xsec_token=AB1IQs84kZfU6NPuJ-wgSq_DKCxqiNnLcoewxVKyhJJ1M=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/eb4aa29c08b5c8bfc27518a37565dde1/1040g2sg31slf966m62h05pq4dru73fqdko8sm10!nc_n_webp_mw_1" },
+      "6a005c5a0000000007012d07": { href: "https://www.xiaohongshu.com/search_result/6a005c5a0000000007012d07?xsec_token=ABGNu_eTYaGJsFTO2GBFh4-l_rZWOGw073ZDxnhKngrI4=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/4a5040e5348a9bf14e9b5d5d7e5d11f8/1040g00831vvmh2a3ii405q06ast22opd8akiqko!nc_n_webp_mw_1" },
+      "68ff51fe000000000500248e": { href: "https://www.xiaohongshu.com/search_result/68ff51fe000000000500248e?xsec_token=ABgiMMqvqnOd5CZhwiOa5XybxLOtxVwyyYQhiWdIWxJx0=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/22290e184561da22016afe9723a5fa0c/1040g2sg31o50tnqe5m005o4a8np08l8u1khnvng!nc_n_webp_mw_1" },
+      "67f66fee000000000903a1be": { href: "https://www.xiaohongshu.com/search_result/67f66fee000000000903a1be?xsec_token=ABACrvL3EnZd43nF6MQGHTxSnw2xtii7lMhUyWaAjTgfA=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191344/34406b328ae5ce154af3dee5a91cebf2/notes_pre_post/1040g3k831g2588m106ag5pu7t00j94ul1c7ompg!nc_n_webp_mw_1" },
+      "669c7a990000000025016e70": { href: "https://www.xiaohongshu.com/search_result/669c7a990000000025016e70?xsec_token=ABUYnqcH_-bkPAWb9yab8bUETNRdkbFSJVZeWTDoebmTk=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191344/313b0fcb4b5026e93e97b5240834aa91/1040g2sg315gg6n3egodg5odnadn8d3kjapnv7r8!nc_n_webp_mw_1" },
+      "6a070047000000003601fc3e": { href: "https://www.xiaohongshu.com/search_result/6a070047000000003601fc3e?xsec_token=AB4WQycZgRUkOUC7zSUccPTUFU95_31eBYQvqel1nV1_k=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191344/7af7e4a13d59bf79a87f3666d1c8db5f/1040g2sg3206h0egvlmqg5pgalaq1houbcpd4of8!nc_n_webp_mw_1" },
+      "69cc05c5000000001a0346e4": { href: "https://www.xiaohongshu.com/search_result/69cc05c5000000001a0346e4?xsec_token=ABIZlBNiNf1GKKKjW4dBo4G7507n_xLj13BIDG_tzal5Y=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/cc783c9b34f42dcf33cef92bab030d6e/1040g00831ucj7um8iq204b7rolr0dl15copqsl8!nc_n_webp_mw_1" },
+      "69fd3fb60000000023014b89": { href: "https://www.xiaohongshu.com/search_result/69fd3fb60000000023014b89?xsec_token=ABxO4O2Wn2q30AEEF68cfehYpcL9yvyqWsIziDhkAhITo=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/c762964f2963a6fb118df22fa29b9a09/notes_pre_post/1040g3k831vt05ou2iie05ns8aoh08t9vi7ku7ao!nc_n_webp_mw_1" },
+      "69db01c80000000022024a6b": { href: "https://www.xiaohongshu.com/search_result/69db01c80000000022024a6b?xsec_token=ABnrSraycdVpsH5QOh8o9CuFOdT3dGN-Kus39abaQs4cA=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/7cceec370b4dea27dc6c1512129a052e/notes_pre_post/1040g3k031uri2c3h3q6g5q8hqj9doiokj677em0!nc_n_webp_mw_1" },
+      "67b6fccf000000000703526c": { href: "https://www.xiaohongshu.com/search_result/67b6fccf000000000703526c?xsec_token=ABkEzNqs3FmAfHxOfxqJ77RI6DvPhjqL9hgH8FcnZq6us=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/bcb8279a685d395c17c9b8add108bd25/1040g2sg31e4cjac40s705niroa20922fashads0!nc_n_webp_mw_1" },
+      "69eb4d390000000035031881": { href: "https://www.xiaohongshu.com/search_result/69eb4d390000000035031881?xsec_token=ABAXpaJdoJMPqxk_KhBpZMjoELyjCFdUP9nO_2zTIXz4A=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/688795a420318698839f629f3443d4e4/notes_pre_post/1040g3k831vbfae11hu7g5nu8k7e098k0dmi3pc8!nc_n_webp_mw_1" },
+      "683b6b0c0000000023015684": { href: "https://www.xiaohongshu.com/search_result/683b6b0c0000000023015684?xsec_token=ABXXhAzds02wk5mKlUqcuOQDtJX-gQ2KhGepWNJtM5WR4=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/ae1d0b24490260be7e299e456f183cb5/spectrum/1040g34o31i5q3dia6s0g5ntu7jhg83bn4a5i15g!nc_n_webp_mw_1" },
+      "69ba9190000000001e00ebcb": { href: "https://www.xiaohongshu.com/search_result/69ba9190000000001e00ebcb?xsec_token=ABuYswoEIZf_5OhjRArVpd1zKF-y7n0EKZ-LFHC60nq-g=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/105bf32f0924bdd5a516af0e8c4b629d/spectrum/1040g0k031trsg2utga005pd05sfo3rn5q3jsv10!nc_n_webp_mw_1" },
+      "697f28430000000021028569": { href: "https://www.xiaohongshu.com/search_result/697f28430000000021028569?xsec_token=ABcnDs4x3CTi3xdF-_1OnorpiKfbR-zuWcF58jV9GJ2vo=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/8d151c941da063f36af5d3ff87c1f842/notes_pre_post/1040g3k031s1rrm10k86g5prl8qk58ksjedu99lg!nc_n_webp_mw_1" },
+      "6a0b37430000000035025040": { href: "https://www.xiaohongshu.com/search_result/6a0b37430000000035025040?xsec_token=ABVrpaV9nAWkoeSbMlspZBpe6D5j3HGv3o4QidOpf3lhA=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/a712ee739d899042d6a88f976d1535c8/notes_pre_post/1040g3k0320akls315i6g5qee40rcl9q0l7npp7o!nc_n_webp_mw_1" },
+      "67cf947e000000002900c930": { href: "https://www.xiaohongshu.com/search_result/67cf947e000000002900c930?xsec_token=ABkwU73ku4i_ZgJurCLue7VpFoy4IWlm9_Lxo3C2ClOHQ=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/b1931e67fcbe02515d813d76cec0c551/notes_pre_post/1040g3k831esd3j6k66005pg9ts03cil7ut054i0!nc_n_webp_mw_1" },
+      "68e1271b00000000070141d2": { href: "https://www.xiaohongshu.com/search_result/68e1271b00000000070141d2?xsec_token=ABwRakVZw1Xt-X4k7SdXk0D9K65Qvdn3r2rbvh_X-Lx7g=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/5bd83376bdc8d14cd2f6e67aea5748c3/notes_pre_post/1040g3k031n7hnqs24q5g5ogkk6jk1q2gq35287o!nc_n_webp_mw_1" },
+      "68946395000000002502bfe8": { href: "https://www.xiaohongshu.com/search_result/68946395000000002502bfe8?xsec_token=ABE6Q-zUmn0Qh_gieBMAiebGvHDMRIxVjwCUWXH3YrKFg=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/a58a01858297b85e6cbb1e30e903dca6/notes_pre_post/1040g3k031ksivh4o36005ofcqnok18adeo37gr8!nc_n_webp_mw_1" },
+      "69f69432000000002301d205": { href: "https://www.xiaohongshu.com/search_result/69f69432000000002301d205?xsec_token=AB6eALhG4ruXJtqy1eAqmQ2IAnV9I6mFlcOPd8yOFxpqE=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/3775bb939cdbfb1e0dac985c6f911445/1040g00831vu6igc52a105nhq8aa094k9533u23o!nc_n_webp_mw_1" },
+      "69fdf5e20000000022027eb2": { href: "https://www.xiaohongshu.com/search_result/69fdf5e20000000022027eb2?xsec_token=ABxO4O2Wn2q30AEEF68cfehRpMW7o2AfiiW0wqzx8vOtY=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191344/7888e44783c75ca7cae8e13cb83357c0/notes_pre_post/1040g3k031vtmbbdnii405q2g1b0nnd9s5kfs4p8!nc_n_webp_mw_1" },
+      "67b9bbb70000000029039390": { href: "https://www.xiaohongshu.com/search_result/67b9bbb70000000029039390?xsec_token=AB22aiK2uknoZj_Qgi6aNKItzmHSfoV211JfXkkWf_d74=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/f62a9bec105a57537c34eecc81b2f677/notes_pre_post/1040g3k031e7286pd10005ndipac097lepb7p6io!nc_n_webp_mw_1" },
+      "68be381a000000001d00730e": { href: "https://www.xiaohongshu.com/search_result/68be381a000000001d00730e?xsec_token=ABguXpktloN6_5XujotWzUf6cuhHklYRmx0O5RgQd_T5E=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191344/2004b9ea22a20f9e03bf7d36d54bf3c0/notes_pre_post/1040g3k831m5eheq44q5g5pi2vpr0u5frp1h61r8!nc_n_webp_mw_1" },
+      "69120d280000000003034465": { href: "https://www.xiaohongshu.com/search_result/69120d280000000003034465?xsec_token=ABNkIg-2OtKypGCHXHRurH0pCuX2LJv1epw1B30HIVcMI=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/9ee260128ec32607832c398baf6ae8eb/1040g2sg31onab79bmgdg5op6ep18vb1usld2a7g!nc_n_webp_mw_1" },
+      "68f130d40000000007014102": { href: "https://www.xiaohongshu.com/search_result/68f130d40000000007014102?xsec_token=ABRJ6E42blKhywodU5_hNREv5jxK1jT36-C67deIh1ihU=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/9d08b8bacfccde727b2577b9dc1dd6d6/notes_pre_post/1040g3k831nn41d58529g5pnhaj27e0mch9ek4l0!nc_n_webp_mw_1" },
+      "65dedc02000000000b01a77f": { href: "https://www.xiaohongshu.com/search_result/65dedc02000000000b01a77f?xsec_token=ABaay-FGDitBbFD37Oo_RMM2t19g47qNo15eiN2SyolKk=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/2936211ebe52f41994a56f5ebeb0a827/1040g00830vnaj70gm4005o0anlcgbp9q1g7mr2o!nc_n_webp_mw_1" },
+      "69cbb7d100000000210106fd": { href: "https://www.xiaohongshu.com/search_result/69cbb7d100000000210106fd?xsec_token=ABbc-ZnR4Led_jf6XieksyIg10QwN9lsrpHL2QyKhLe_g=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/4c83de8f493ecf5ce548fe95a7c4ef5d/notes_pre_post/1040g3k031uck0gvjia205oenfca414i4aq3lqo8!nc_n_webp_mw_1" },
+      "660bdb96000000001a00f73d": { href: "https://www.xiaohongshu.com/search_result/660bdb96000000001a00f73d?xsec_token=AByZnyyUTdkTQ4I-OTbfbQiooO-vR7xIGlglY3ei4N1dM=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191344/3eae8646f899dcbd2414c949f826e132/1040g2sg31138phiimg504a725nt1fmdq0krm138!nc_n_webp_mw_1" },
+      "69fcb8e2000000003700eb81": { href: "https://www.xiaohongshu.com/search_result/69fcb8e2000000003700eb81?xsec_token=ABtzfY-P4evjf7G-ZVkPqlq4kkqGoY0KSJlhMM8hf2rx0=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/c1c3d6024bb6afa2165ea8991643ceab/1040g00831vsf2ig72i005o7iu2dg97f3olorbt8!nc_n_webp_mw_1" },
+      "6910be54000000000703922f": { href: "https://www.xiaohongshu.com/search_result/6910be54000000000703922f?xsec_token=ABeAvHf6wkv40-06BmigcqPskIL9Cn8t7h51XDZ0y7eXM=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/e63d1faa8782de7997b714472e846082/1040g2sg31olvo3um6mk05o3aqm309fgmoe2m408!nc_n_webp_mw_1" },
+      "6762f04f000000001402337f": { href: "https://www.xiaohongshu.com/search_result/6762f04f000000001402337f?xsec_token=ABh8VaSyllfs602eJlOf-LjmHoO5fWUo-rF6_7nlMf-JE=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/8d3aeb97069498557299c92a8086e8ea/1040g00831bia2g880e6g5okq5e8mdar3f1kj5mg!nc_n_webp_mw_1" },
+      "69b955e4000000002200ff50": { href: "https://www.xiaohongshu.com/search_result/69b955e4000000002200ff50?xsec_token=ABTTciVgvHvJskkYiHkZqqJ-weQ9ixTyS5ckoeN23nSu0=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/cafeecac08741d37dbbdbfce092a05e1/1040g00831tqlumojmi004af58ost8g41frno82o!nc_n_webp_mw_1" },
+      "69fe2690000000003502d555": { href: "https://www.xiaohongshu.com/search_result/69fe2690000000003502d555?xsec_token=AButBrCl8w0-vkc7yRhzobcg0eZkZ6DAfR7i1Y-avHon8=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/9f9d8e6f074806fd7dfbc25316571b94/1040g00831vts5df948005p62c4u5759eea4dqdg!nc_n_webp_mw_1" },
+      "6960212e000000001a02c9c7": { href: "https://www.xiaohongshu.com/search_result/6960212e000000001a02c9c7?xsec_token=ABncX1vf9ypiOt9jtUat6XmfagJBFfJu9F7PfebMgZDXk=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/f3de4bcd54044a93dd7a037028dbd419/1040g2sg31r3gtj617oj05p3e523kmhlov0l5v00!nc_n_webp_mw_1" },
+      "69aa23440000000015023a0c": { href: "https://www.xiaohongshu.com/search_result/69aa23440000000015023a0c?xsec_token=AB3jmyFcTEdaMEXGRsRr6OY5-d8FaVQ8x0BMxoXsaaGyc=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191344/226ebecb91c7ed558c54879186263da5/1040g2sg31tbqsbv95sk05q284mh6s2svah4vhs8!nc_n_webp_mw_1" },
+      "68abc27f000000001c03d428": { href: "https://www.xiaohongshu.com/search_result/68abc27f000000001c03d428?xsec_token=ABwdBNifFfCeelZGvPDni4GqI0ncjpLK28LHovZk4c2bw=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/2960173bd00b13fd7413c8f02136f103/1040g2sg31ljdj9jdksdg5oeo17fk11ohm39d3po!nc_n_webp_mw_1" },
+      "6997ffc0000000001a024be4": { href: "https://www.xiaohongshu.com/search_result/6997ffc0000000001a024be4?xsec_token=AB7CEhsjMGnGUXb899chToqtSLGv7E79CNzCZhDZSVRrU=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/a95dc8824648edaf6cbd280ed4ed395f/1040g00831sq4519n68005o3l1pjg8pnh4jgj31o!nc_n_webp_mw_1" },
+      "67af4066000000001701c173": { href: "https://www.xiaohongshu.com/search_result/67af4066000000001701c173?xsec_token=ABik3M2qxme6w1v4hQeBSiYiir46hXh8JdRJGn_AWYEps=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/36cc46981661eafd53f2918bfbd83baf/1040g00831dspvib9gu005p5frv3noqhj8sua3rg!nc_n_webp_mw_1" },
+      "69f56132000000003601da4a": { href: "https://www.xiaohongshu.com/search_result/69f56132000000003601da4a?xsec_token=ABuZysS2RZvCkuusNsuj1jvuENCO9iO2ivHa8G5sV9Pkw=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/494fb76c309e77ac0c8934256c27a6c3/1040g2sg31vl92ca3jqe04b6ei4deoploo4aurho!nc_n_webp_mw_1" },
+      "68833e8f000000001c034222": { href: "https://www.xiaohongshu.com/search_result/68833e8f000000001c034222?xsec_token=ABLHcNmxZ0bCCRN14iQeeLllE6GoXmFpGKiPurJ5E3Rxc=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191334/af47e368233e5c2509db8cbcf153eed7/1040g2sg31kbr6qv030004a7fa4sa97lcpkqbceg!nc_n_webp_mw_1" }
+    };
+
+    const usablePosts = posts.filter(post => {
+      const id = post.link.split("/").pop();
+      const source = sourceData[id];
+      return source && source.href && source.image;
+    });
+
+    const state = {
+      query: "",
+      theme: "all",
+      shape: "all",
+      priority: "all"
+    };
+
+    const cardsEl = document.querySelector("#cards");
+    const emptyEl = document.querySelector("#empty");
+    const totalEl = document.querySelector("#totalCount");
+    const toastEl = document.querySelector("#toast");
+    const themeFilter = document.querySelector("#themeFilter");
+    const shapeFilter = document.querySelector("#shapeFilter");
+    const priorityFilter = document.querySelector("#priorityFilter");
+    const searchEl = document.querySelector("#search");
+    const chipsEl = document.querySelector("#themeChips");
+    const keywordBoardEl = document.querySelector("#keywordBoard");
+    const copyKeywordsEl = document.querySelector("#copyKeywords");
+    const resetKeywordsEl = document.querySelector("#resetKeywords");
+    const materialsViewEl = document.querySelector("#materialsView");
+    const keywordsViewEl = document.querySelector("#keywordsView");
+    const materialsToolbarEl = document.querySelector("#materialsToolbar");
+    const viewTabs = document.querySelectorAll(".view-tab");
+
+    const defaultKeywords = {
+      core: {
+        title: "核心关键词",
+        items: ["暗恋真实故事", "暗恋聊天记录", "分手复盘", "冷暴力恋爱", "断联后复联", "友情以上恋人未满", "暧昧拉扯", "前任突然联系"]
+      },
+      longtail: {
+        title: "长尾关键词",
+        items: ["多年后才知道被喜欢", "暗恋终止瞬间", "前任高铁重逢", "每年只发新年快乐的人", "十五年后知道你结婚", "高中暗恋的人再次见面", "断联十年的初恋对象突然联系我"]
+      },
+      combo: {
+        title: "组合关键词",
+        items: ["暗恋 + 亲身经历", "crush + 后续", "冷暴力 + 被逼分手", "分手 + 多年恋爱", "聊天记录 + 暗恋", "办公室暧昧 + 边界感", "复联 + 再断联"]
+      },
+      exclude: {
+        title: "排除关键词",
+        items: ["MBTI", "视角", "氛围感", "文案", "推文", "小说", "短剧", "塔罗", "星座", "教程", "挽回机构", "纯爽文"]
+      }
+    };
+
+    function loadKeywords() {
+      try {
+        const saved = JSON.parse(localStorage.getItem("xhKeywordLibrary") || "null");
+        if (saved && typeof saved === "object") return saved;
+      } catch (error) {
+        return structuredClone(defaultKeywords);
+      }
+      return structuredClone(defaultKeywords);
+    }
+
+    let keywordLibrary = loadKeywords();
+
+    const themes = [...new Set(usablePosts.map(post => post.theme))];
+    const shapes = [...new Set(usablePosts.map(post => post.shape))];
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;");
+    }
+
+    themes.forEach(theme => {
+      themeFilter.append(new Option(theme, theme));
+      const chip = document.createElement("button");
+      chip.className = "chip";
+      chip.type = "button";
+      chip.textContent = theme;
+      chip.dataset.theme = theme;
+      chip.addEventListener("click", () => {
+        state.theme = state.theme === theme ? "all" : theme;
+        themeFilter.value = state.theme;
+        render();
+      });
+      chipsEl.append(chip);
+    });
+
+    shapes.forEach(shape => {
+      shapeFilter.append(new Option(shape, shape));
+    });
+
+    function saveKeywords() {
+      localStorage.setItem("xhKeywordLibrary", JSON.stringify(keywordLibrary));
+      renderSidebarKeywords();
+    }
+
+    function renderSidebarKeywords() {
+      const list = document.querySelector(".keyword-list");
+      if (!list) return;
+      list.innerHTML = `
+        <div><strong>核心：</strong>${keywordLibrary.core.items.map(escapeHtml).join("、") || "未设置"}</div>
+        <div><strong>长尾：</strong>${keywordLibrary.longtail.items.map(escapeHtml).join("、") || "未设置"}</div>
+        <div><strong>排除：</strong>${keywordLibrary.exclude.items.map(escapeHtml).join("、") || "未设置"}</div>
+      `;
+    }
+
+    function renderKeywordBoard() {
+      keywordBoardEl.innerHTML = Object.entries(keywordLibrary).map(([key, group]) => `
+        <section class="keyword-column" data-key="${escapeHtml(key)}">
+          <h3>${escapeHtml(group.title)}</h3>
+          <div class="keyword-add">
+            <input type="text" placeholder="新增关键词">
+            <button class="mini-button" type="button">添加</button>
+          </div>
+          <div class="keyword-items">
+            ${group.items.map((item, index) => `
+              <div class="keyword-item">
+                <input value="${escapeHtml(item)}" data-index="${index}" aria-label="${escapeHtml(group.title)} ${index + 1}">
+                <button class="delete-keyword" type="button" data-index="${index}" aria-label="删除 ${escapeHtml(item)}">×</button>
+              </div>
+            `).join("")}
+          </div>
+        </section>
+      `).join("");
+
+      keywordBoardEl.querySelectorAll(".keyword-column").forEach(column => {
+        const key = column.dataset.key;
+        const addInput = column.querySelector(".keyword-add input");
+        const addButton = column.querySelector(".mini-button");
+        addButton.addEventListener("click", () => {
+          const value = addInput.value.trim();
+          if (!value) return;
+          keywordLibrary[key].items.push(value);
+          addInput.value = "";
+          saveKeywords();
+          renderKeywordBoard();
+          showToast("已添加关键词");
+        });
+        addInput.addEventListener("keydown", event => {
+          if (event.key === "Enter") addButton.click();
+        });
+        column.querySelectorAll(".keyword-item input").forEach(input => {
+          input.addEventListener("change", () => {
+            const index = Number(input.dataset.index);
+            const value = input.value.trim();
+            if (!value) {
+              keywordLibrary[key].items.splice(index, 1);
+            } else {
+              keywordLibrary[key].items[index] = value;
+            }
+            saveKeywords();
+            renderKeywordBoard();
+            showToast("关键词已保存");
+          });
+        });
+        column.querySelectorAll(".delete-keyword").forEach(button => {
+          button.addEventListener("click", () => {
+            keywordLibrary[key].items.splice(Number(button.dataset.index), 1);
+            saveKeywords();
+            renderKeywordBoard();
+            showToast("关键词已删除");
+          });
+        });
+      });
+    }
+
+    function switchView(view) {
+      const showKeywords = view === "keywords";
+      keywordsViewEl.classList.toggle("hidden", !showKeywords);
+      materialsViewEl.classList.toggle("hidden", showKeywords);
+      materialsToolbarEl.classList.toggle("hidden", showKeywords);
+      viewTabs.forEach(tab => tab.classList.toggle("active", tab.dataset.view === view));
+    }
+
+    function normalized(text) {
+      return String(text).toLowerCase().trim();
+    }
+
+    function visiblePosts() {
+      const query = normalized(state.query);
+      return usablePosts.filter(post => {
+        const haystack = normalized([
+          post.title,
+          post.author,
+          post.theme,
+          post.shape,
+          post.keyword,
+          post.angle,
+          post.question,
+          post.reason
+        ].join(" "));
+        const matchesQuery = !query || haystack.includes(query);
+        const matchesTheme = state.theme === "all" || post.theme === state.theme;
+        const matchesShape = state.shape === "all" || post.shape === state.shape;
+        const matchesPriority = state.priority === "all" || post.priority === state.priority;
+        return matchesQuery && matchesTheme && matchesShape && matchesPriority;
+      });
+    }
+
+    function cardTemplate(post, index) {
+      const priorityText = post.priority === "high" ? "优先二创" : "普通候选";
+      const searchText = `${post.title} ${post.author} ${post.keyword}`;
+      const id = post.link.split("/").pop();
+      const source = sourceData[id] || {};
+      const directLink = source.href;
+      const imageMarkup = `<img src="${source.image}" alt="${post.title} 原帖预览图" loading="lazy" referrerpolicy="no-referrer">`;
+      return `
+        <article class="card">
+          <div class="card-grid">
+            <a class="preview" href="${directLink}" target="_blank" rel="noreferrer">${imageMarkup}</a>
+            <div>
+              <div class="card-head">
+                <div>
+                  <div class="title-row">
+                    <span class="index">${String(index + 1).padStart(2, "0")}</span>
+                    <h3>${post.title}</h3>
+                  </div>
+                  <div class="meta">${post.author} · ${post.date} · ${post.engagement} · 搜索词：${post.keyword}</div>
+                </div>
+                <div class="badges">
+                  <span class="badge theme">${post.theme}</span>
+                  <span class="badge shape">${post.shape}</span>
+                  <span class="badge priority">${priorityText}</span>
+                </div>
+              </div>
+              <div class="body-grid">
+                <div class="note"><b>二创角度</b>${post.angle}</div>
+                <div class="note"><b>讨论问题</b>${post.question}</div>
+                <div class="note"><b>质量判断</b>${post.reason}</div>
+              </div>
+              <div class="actions">
+                <a class="action" href="${directLink}" target="_blank" rel="noreferrer">打开原帖</a>
+                <button class="action" data-copy="${encodeURIComponent(searchText)}">复制检索词</button>
+                <button class="action" data-copy="${encodeURIComponent(post.question)}">复制讨论题</button>
+                <button class="action" data-copy="${encodeURIComponent(directLink)}">复制站内线索</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function render() {
+      const list = visiblePosts();
+      totalEl.textContent = list.length;
+      cardsEl.innerHTML = list.map(cardTemplate).join("");
+      emptyEl.style.display = list.length ? "none" : "block";
+      document.querySelectorAll(".chip").forEach(chip => {
+        chip.classList.toggle("active", chip.dataset.theme === state.theme);
+      });
+      document.querySelectorAll("[data-copy]").forEach(button => {
+        button.addEventListener("click", async () => {
+          const text = decodeURIComponent(button.dataset.copy);
+          await navigator.clipboard.writeText(text);
+          showToast(button.textContent.replace("复制", "已复制"));
+        });
+      });
+    }
+
+    function showToast(text) {
+      toastEl.textContent = text;
+      toastEl.classList.add("show");
+      window.clearTimeout(showToast.timer);
+      showToast.timer = window.setTimeout(() => toastEl.classList.remove("show"), 1300);
+    }
+
+    searchEl.addEventListener("input", event => {
+      state.query = event.target.value;
+      render();
+    });
+    themeFilter.addEventListener("change", event => {
+      state.theme = event.target.value;
+      render();
+    });
+    shapeFilter.addEventListener("change", event => {
+      state.shape = event.target.value;
+      render();
+    });
+    priorityFilter.addEventListener("change", event => {
+      state.priority = event.target.value;
+      render();
+    });
+    viewTabs.forEach(tab => {
+      tab.addEventListener("click", () => switchView(tab.dataset.view));
+    });
+    copyKeywordsEl.addEventListener("click", async () => {
+      const text = Object.values(keywordLibrary)
+        .map(group => `${group.title}：${group.items.join("、")}`)
+        .join("\n");
+      await navigator.clipboard.writeText(text);
+      showToast("已复制关键词库");
+    });
+    resetKeywordsEl.addEventListener("click", () => {
+      keywordLibrary = structuredClone(defaultKeywords);
+      saveKeywords();
+      renderKeywordBoard();
+      showToast("已恢复默认");
+    });
+
+    renderSidebarKeywords();
+    renderKeywordBoard();
+    render();
+  </script>
+</body>
+</html>
