@@ -634,16 +634,16 @@
     <header class="topbar">
       <div>
         <h1>小红书恋爱情感选题素材库</h1>
-        <div class="subline">2026-05-19 · 文字/图文优先 · 仅展示可打开且有封面的帖子</div>
+        <div class="subline">2026-05-20 · 文字/图文优先 · 仅展示可打开且有封面的帖子</div>
         <nav class="view-tabs" aria-label="页面切换">
           <button class="view-tab active" type="button" data-view="materials">素材库</button>
           <button class="view-tab" type="button" data-view="keywords">关键词库</button>
         </nav>
       </div>
       <div class="stats">
-        <div class="stat"><b id="totalCount">47</b><span>候选帖子</span></div>
+        <div class="stat"><b id="totalCount">56</b><span>候选帖子</span></div>
         <div class="stat"><b>7</b><span>主题方向</span></div>
-        <div class="stat"><b id="usableCount">47</b><span>可用原帖</span></div>
+        <div class="stat"><b id="usableCount">56</b><span>可用原帖</span></div>
       </div>
     </header>
 
@@ -705,6 +705,15 @@
 
   <script>
     const posts = [
+      { title: "分手复盘", author: "志三", date: "05-04", engagement: "2784", theme: "分手/复盘", shape: "长文/图文", keyword: "分手复盘 亲身经历 安全感", priority: "high", collectionDate: "2026-05-20 新增", angle: "把关系结束后的自责，改写成一场关于安全感、边界和自我承担的清醒复盘。", question: "分手后最该复盘的，是对方的问题，还是自己在关系里的模式？", reason: "正文长、评论区共鸣强，脱离截图可完整复述，二创难度低。", link: "https://www.xiaohongshu.com/search_result/69cfba7a000000002202b995" },
+      { title: "五年的感情也就这样", author: "乌鱼的一天", date: "03-15", engagement: "758", theme: "分手/复盘", shape: "长文/图文", keyword: "五年感情 断崖式分手 分手复盘", priority: "high", collectionDate: "2026-05-20 新增", angle: "从“突然被分手”切入，讲一段关系其实早就在对方那里慢慢结束了。", question: "一段五年的感情被突然结束，最痛的是失去这个人，还是发现自己一直活在假象里？", reason: "故事线清楚，评论补充大量同类经历，适合改成口播故事。", link: "https://www.xiaohongshu.com/search_result/69b614bd000000001d01da4f" },
+      { title: "当你孕期因为NPD冷暴力而难过时(早已离)", author: "NPD幸存者的救赎", date: "2025-05-20", engagement: "2016", theme: "冷暴力/纠纷", shape: "投稿复盘/图文", keyword: "孕期 冷暴力 离婚 亲身经历", priority: "high", collectionDate: "2026-05-20 新增", angle: "弱化诊断标签，改成孕期亲密关系里“被无视的痛苦”与离开的决心。", question: "亲密关系里最伤人的，是激烈争吵，还是你痛苦时对方把你当麻烦？", reason: "信息量足、冲突强、评论区讨论高；涉及人格标签，二创需谨慎降敏。", link: "https://www.xiaohongshu.com/search_result/682ac01e000000002001fe2f" },
+      { title: "暗恋中嫉妒对方女友的自述", author: "momo", date: "05-07", engagement: "7396", theme: "暗恋/青春", shape: "长文/图文", keyword: "暗恋 嫉妒 对方女友 少女心事", priority: "high", collectionDate: "2026-05-20 新增", angle: "把暗恋里的阴暗面讲成一次自我价值感失衡：不是只喜欢他，也是在羡慕她。", question: "暗恋一个有对象的人时，嫉妒对方女友是恶意，还是自卑感在求救？", reason: "自述完整、冲突少见、评论共鸣强，脱离截图可复述。", link: "https://www.xiaohongshu.com/search_result/69fc659c000000003503aa22" },
+      { title: "你是那个友达以上恋人未满的situationship", author: "青木瓜", date: "2024-11-11", engagement: "1430", theme: "友情以上", shape: "长文/图文", keyword: "友达以上 situationship 追问关系", priority: "high", collectionDate: "2026-05-20 新增", angle: "用“追问关系定义后对方退缩”讲暧昧里最常见的权力差。", question: "当你忍不住问“我们算什么”时，是不是答案其实已经出现了？", reason: "文本完整、情节递进清楚，适合改成暧昧关系拆解。", link: "https://www.xiaohongshu.com/search_result/6731f79b000000003c019fb2" },
+      { title: "失望攒够后的分手信", author: "沙拉酱淹汉堡", date: "02-12", engagement: "101", theme: "分手/复盘", shape: "文字/图文", keyword: "失望攒够 分手信 及时止损", priority: "normal", collectionDate: "2026-05-20 新增", angle: "从一封分手信出发，讲情绪价值长期缺位后，离开反而变得平静。", question: "失望攒够后的分手，是真的不爱了，还是终于不想再解释了？", reason: "正文和作者评论能拼出完整关系矛盾，故事完整度中等。", link: "https://www.xiaohongshu.com/search_result/698dd71c000000000a03c4e1" },
+      { title: "分手总结", author: "鱼七七", date: "01-15", engagement: "98", theme: "分手/复盘", shape: "长文/图文", keyword: "分手总结 PUA 冷战 相亲", priority: "high", collectionDate: "2026-05-20 新增", angle: "四个月不健康恋爱里，从让步、被消耗到最终因为冷战后相亲选择离开。", question: "一段关系里，如果你一直在维护对方的自尊，谁来维护你的感受？", reason: "作者明确说全部为事实和真情实感，冲突完整，二创难度低。", link: "https://www.xiaohongshu.com/search_result/6968214b000000000a030810" },
+      { title: "用户暗恋日记", author: "用户1105", date: "2天前", engagement: "5", theme: "暗恋/青春", shape: "日记连载/图文", keyword: "用户暗恋日记 校园暗恋 送糖 合照", priority: "normal", collectionDate: "2026-05-20 新增", angle: "用“第1次到第37次”的结构记录一次校园暗恋如何靠小信号续命。", question: "暗恋里那些很小的回应，为什么会被记得像大事件？", reason: "互动低但文本细节密，适合做细腻青春向长文改写。", link: "https://www.xiaohongshu.com/search_result/6a098509000000003601bd74" },
+      { title: "我喜欢了一个女生43次", author: "用户0306", date: "05-05", engagement: "994", theme: "暗恋/青春", shape: "长文日记/图文", keyword: "喜欢女生43次 青梅式暗恋 钢琴", priority: "high", collectionDate: "2026-05-20 新增", angle: "从6岁到16岁，把一次次心动串成一个关于陪伴、疏远和执念的暗恋故事。", question: "喜欢一个人很多次，是因为她一直值得，还是因为你舍不得过去的自己？", reason: "时间跨度强、细节密集、结构天然适合二创，故事完整度高。", link: "https://www.xiaohongshu.com/search_result/69f99864000000003803406b" },
       { title: "原来也有人悄悄喜欢过我", author: "逆舟", date: "05-09", engagement: "2.5万", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "high", angle: "多年后才知道有人认真喜欢过自己。", question: "如果很多年后才发现有人因为你改变人生方向，你会感动还是有压力？", reason: "细节完整，情绪克制，后知后觉的被爱很容易引发共鸣。", link: "https://www.xiaohongshu.com/search_result/69ff0c2a000000001a036fa8" },
       { title: "爱看的日记都be。。。", author: "小红薯69509658", date: "05-07", engagement: "18", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "normal", angle: "把暗恋日记当连续故事追，结局却让人失落。", question: "为什么我们会对陌生人的暗恋结局投入情绪？", reason: "低互动但适合做小众情绪切片。", link: "https://www.xiaohongshu.com/search_result/69fc760e00000000380220b0" },
       { title: "和高中几乎没有交集的人在一起了（后续）", author: "巧克力泡芙", date: "2025-09-08", engagement: "1.7万", theme: "暗恋/青春", shape: "文字/图文", keyword: "暗恋 真实故事 亲身经历", priority: "high", angle: "原本无交集的人，后来成为亲密关系。", question: "校园里没有交集的两个人，后来在一起算命运还是主动？", reason: "标题有反差和后续属性，容易带动追更。", link: "https://www.xiaohongshu.com/search_result/688ce4bb000000002203b629" },
@@ -774,6 +783,15 @@
     ];
 
     const sourceData = {
+      "69cfba7a000000002202b995": { href: "https://www.xiaohongshu.com/explore/69cfba7a000000002202b995?xsec_source=pc_search&source=web_search_result_notes", image: "https://sns-webpic-qc.xhscdn.com/202605201421/1861cd9e6dcdd59efb2ad2003826cb1d/notes_pre_post/1040g3k831ughcuaj2a705nleu5v08k12lj0h6m0!nc_n_webp_mw_1" },
+      "69b614bd000000001d01da4f": { href: "https://www.xiaohongshu.com/explore/69b614bd000000001d01da4f?xsec_source=pc_search&source=web_search_result_notes", image: "https://sns-webpic-qc.xhscdn.com/202605201421/1861cd9e6dcdd59efb2ad2003826cb1d/notes_pre_post/1040g3k831ughcuaj2a705nleu5v08k12lj0h6m0!nc_n_webp_mw_1" },
+      "682ac01e000000002001fe2f": { href: "https://www.xiaohongshu.com/explore/682ac01e000000002001fe2f?xsec_source=pc_search&source=web_search_result_notes", image: "https://sns-webpic-qc.xhscdn.com/202605201422/dbf0eaf552755e842f47e721dfd7f38d/notes_pre_post/1040g3k831t7b644e5el04bqc6g18ashg8linp3g!nc_n_webp_mw_1" },
+      "69fc659c000000003503aa22": { href: "https://www.xiaohongshu.com/explore/69fc659c000000003503aa22?xsec_source=pc_search&source=web_search_result_notes", image: "https://sns-webpic-qc.xhscdn.com/202605201423/f09787928b0a055d07cd697cd7309661/1040g00831gu1u7323c5g5p52jq146rtctknsucg!nc_n_webp_mw_1" },
+      "6731f79b000000003c019fb2": { href: "https://www.xiaohongshu.com/explore/6731f79b000000003c019fb2?xsec_source=pc_search&source=web_search_result_notes", image: "https://sns-webpic-qc.xhscdn.com/202605201423/221b1be28cac108b0e654f0942d68733/notes_pre_post/1040g3k831jn9b5482ud05pi1k5gguddql87pdko!nc_n_webp_mw_1" },
+      "698dd71c000000000a03c4e1": { href: "https://www.xiaohongshu.com/explore/698dd71c000000000a03c4e1?xsec_source=pc_search&source=web_search_result_notes", image: "https://sns-webpic-qc.xhscdn.com/202605201424/5f7dade3111be1f713736d131e3a49aa/notes_pre_post/1040g3k831ughcuaj2a705nleu5v08k12lj0h6m0!nc_n_webp_mw_1" },
+      "6968214b000000000a030810": { href: "https://www.xiaohongshu.com/explore/6968214b000000000a030810?xsec_source=pc_search&source=web_search_result_notes", image: "https://sns-webpic-qc.xhscdn.com/202605201425/cc5a977f014616bc78e73ce2205e2530/notes_pre_post/1040g3k831ughcuaj2a705nleu5v08k12lj0h6m0!nc_n_webp_mw_1" },
+      "6a098509000000003601bd74": { href: "https://www.xiaohongshu.com/explore/6a098509000000003601bd74?xsec_source=pc_search&source=web_search_result_notes", image: "https://sns-webpic-qc.xhscdn.com/202605201426/363f887ea551c3234d8a738e3da21665/1040g00831gu1u7323c5g5p52jq146rtctknsucg!nc_n_webp_mw_1" },
+      "69f99864000000003803406b": { href: "https://www.xiaohongshu.com/explore/69f99864000000003803406b?xsec_source=pc_search&source=web_search_result_notes", image: "https://sns-webpic-qc.xhscdn.com/202605201427/1e26b65762a9b878d11abb236a466c2f/1040g00831gu1u7323c5g5p52jq146rtctknsucg!nc_n_webp_mw_1" },
       "6a03dcad00000000060359db": { href: "https://www.xiaohongshu.com/search_result/6a03dcad00000000060359db?xsec_token=ABOoRsSHQD3iQ9Pm4GH9Lxe7iPysEUES9cLg6bVaImTeY=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191516/86f5c366b183f42c0f9f36cd7dd1ba17/notes_pre_post/1040g3k03203eqliuig005nr37n909c0ocle38qo!nc_n_webp_mw_1" },
       "6863d0c80000000023006871": { href: "https://www.xiaohongshu.com/search_result/6863d0c80000000023006871?xsec_token=AB8kGuWYqCjUlNsjfmpQwGCa73bSeYIvkzEd95Ez2jHTA=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191516/935236447c9f89d7baa164325a36b8aa/1040g2sg31jd5ev9534j05os32t3nra7k9r9ke08!nc_n_webp_mw_1" },
       "67c480ad000000000603e016": { href: "https://www.xiaohongshu.com/search_result/67c480ad000000000603e016?xsec_token=ABXExhLoyh4XSwiowppiWOvwcojfwhOs-nMC8l2Aku6-U=&xsec_source=", image: "https://sns-webpic-qc.xhscdn.com/202605191516/47e2b6296cc819f70bf506dd4a0aa701/notes_pre_post/1040g3k831ehih3af0s005ogrhneod2q2iobd5p0!nc_n_webp_mw_1" },
